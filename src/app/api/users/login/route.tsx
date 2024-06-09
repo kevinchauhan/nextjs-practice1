@@ -3,6 +3,9 @@ import jwt from 'jsonwebtoken'
 import userModel from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import { Config } from '@/Config';
+import { db } from '@/Config/db';
+
+db()
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
