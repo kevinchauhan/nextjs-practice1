@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import StoreProvider from "./StoreProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+      </head>
+      <body className={manrope.className}>
+        <StoreProvider>
+          <Header />
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   );
 }
